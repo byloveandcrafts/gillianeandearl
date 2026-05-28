@@ -1788,43 +1788,188 @@
             color: var(--burg);
         }
 
-        /* ── PARENTS ── */
-        #parents {
+        /* ── ENTOURAGE DARK SECTION — wine velvet ballroom ── */
+        #entourage-section {
+            position: relative;
+            overflow: hidden;
+            padding: 120px 24px 140px;
+            background:
+                radial-gradient(ellipse at 50% 0%, rgba(122, 41, 53, 0.55) 0%, transparent 55%),
+                radial-gradient(ellipse at 12% 90%, rgba(122, 41, 53, 0.35), transparent 55%),
+                radial-gradient(ellipse at 88% 90%, rgba(122, 41, 53, 0.35), transparent 55%),
+                linear-gradient(180deg, #2D0810 0%, #4A0F1C 50%, #2D0810 100%);
+            color: var(--ivory);
+        }
+
+        /* Damask diamond pattern overlay — subtle gold filigree on wine */
+        #entourage-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            opacity: 0.07;
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'><g fill='none' stroke='%23E2C98F' stroke-width='.7'><path d='M40 4 L60 40 L40 76 L20 40 Z'/><circle cx='40' cy='40' r='3'/><path d='M40 18 Q48 28 40 40 Q32 28 40 18 Z'/><path d='M40 62 Q48 52 40 40 Q32 52 40 62 Z'/></g></svg>");
+        }
+
+        /* Vignette — centre reads warm, edges sink into shadow */
+        #entourage-section::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background: radial-gradient(ellipse 80% 70% at 50% 50%, transparent, rgba(0, 0, 0, 0.45));
+            z-index: 0;
+        }
+
+        /* Lift all inner content above the pseudo-element overlays */
+        #entourage-section > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        #entourage-section .section-label { color: rgba(212,175,55,0.75); }
+        #entourage-section .section-title { color: var(--ivory); }
+        #entourage-section .divider-line::before,
+        #entourage-section .divider-line::after { background: linear-gradient(90deg, transparent, rgba(212,175,55,0.5), transparent); }
+        #entourage-section .divider-line span { color: rgba(212,175,55,0.7); }
+        #entourage-section .entourage-group h3 { color: var(--gold); border-bottom-color: rgba(212,175,55,0.3); }
+        #entourage-section .entourage-group p,
+        #entourage-section .entourage-group li { color: rgba(255,245,230,0.9); }
+        #entourage-section .sp-col { color: rgba(255,245,230,0.9); background: transparent; }
+        #entourage-section .sp-col:hover { color: var(--gold-light); background: rgba(212,175,55,0.06); }
+        #entourage-section .sp-frame { border-color: rgba(212,175,55,0.28); }
+        #entourage-section .sp-row { border-bottom-color: rgba(212,175,55,0.12); }
+        #entourage-section .sp-col:first-child { border-right-color: rgba(212,175,55,0.18); }
+        #entourage-section .sp-row-single { color: rgba(255,245,230,0.9); }
+        #entourage-section .sp-row-single:hover { color: var(--gold-light); background: rgba(212,175,55,0.06); }
+        #entourage-section .sponsor-block { background: rgba(255,253,248,0.07); border-color: rgba(212,175,55,0.22); }
+        #entourage-section .sponsor-block:hover { box-shadow: 0 8px 28px rgba(0,0,0,0.35); }
+        #entourage-section .sponsor-names { color: rgba(255,245,230,0.88); }
+        #entourage-section .sponsor-role { color: var(--gold); }
+        #entourage-section .entourage-deco-box {
+            background: rgba(255,253,248,0.04);
+            border-color: rgba(212,175,55,0.32);
+        }
+        #entourage-section .entourage-deco-box::before {
+            border-color: rgba(212,175,55,0.16);
+        }
+
+        /* ── PARENTS HONOUR CARDS (inside entourage) ── */
+        .parents-honour-wrap {
+            margin-bottom: 52px;
             text-align: center;
         }
 
-        .parents-grid {
+        .parents-honour-label {
+            font-family: 'Cinzel', serif;
+            font-size: 9.5px;
+            letter-spacing: 0.38em;
+            color: rgba(212,175,55,0.72);
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .parents-honour-title {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(15px, 2.6vw, 24px);
+            letter-spacing: 0.2em;
+            color: var(--ivory);
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
+
+        .parents-honour-title em {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 1.15em;
+            letter-spacing: 0.04em;
+            color: var(--gold);
+        }
+
+        .parents-honour-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            margin-top: 44px;
+            gap: 22px;
+            max-width: 680px;
+            margin: 0 auto;
         }
 
         @media(max-width:560px) {
-            .parents-grid {
+            .parents-honour-grid {
                 grid-template-columns: 1fr;
-                gap: 28px;
+                gap: 16px;
             }
         }
 
-        .parents-block {
+        .parents-honour-card {
+            background: rgba(255,253,248,0.95);
+            border: 1px solid rgba(212,175,55,0.45);
+            border-radius: 2px;
+            padding: 28px 22px 24px;
+            text-align: center;
+            position: relative;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .parents-honour-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 34px rgba(0,0,0,0.4);
+        }
+
+        .parents-honour-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 12%; right: 12%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+
+        .parents-honour-card-mono {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: var(--burg);
+            border: 2px solid var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 14px;
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 19px;
+            color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(212,175,55,0.14), 0 4px 16px rgba(128,0,32,0.4);
+        }
+
+        .parents-honour-card h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 9.5px;
+            letter-spacing: 0.28em;
+            color: var(--gold);
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .parents-honour-card p {
+            font-family: 'Crimson Text', serif;
+            font-size: 20px;
+            color: var(--charcoal);
+            line-height: 1.85;
+        }
+
+        /* ── FLOWER GIRLS CENTERED ── */
+        .flower-girls-row {
+            display: flex;
+            justify-content: center;
+            gap: 44px;
+            flex-wrap: wrap;
+            margin-top: 52px;
             text-align: center;
         }
 
-        .parents-block h3 {
-            font-family: 'Cinzel', serif;
-            font-size: 11px;
-            letter-spacing: 0.25em;
-            color: var(--gold);
-            text-transform: uppercase;
-            margin-bottom: 14px;
-        }
-
-        .parents-block p {
-            font-family: 'Crimson Text', serif;
-            font-size: 21px;
-            color: var(--charcoal);
-            line-height: 1.85;
+        .flower-girls-row .entourage-group {
+            flex: 0 1 190px;
         }
 
         /* ── ENTOURAGE ── */
@@ -2662,15 +2807,19 @@
                 font-size: 18px;
             }
 
-            /* Parents */
-            .parents-grid {
+            /* Parents honour cards (inside entourage) */
+            .parents-honour-grid {
                 grid-template-columns: 1fr;
-                gap: 24px;
-                margin-top: 28px;
+                gap: 14px;
             }
 
-            .parents-block p {
+            .parents-honour-card p {
                 font-size: 17px;
+            }
+
+            .parents-honour-title {
+                font-size: 14px;
+                letter-spacing: 0.15em;
             }
 
             /* Entourage */
@@ -3415,27 +3564,9 @@
         </div>
     </div>
 
-    <!-- ═══════════ PARENTS ═══════════ -->
-    <section id="parents" class="reveal">
-        <p class="section-label">Blessed By</p>
-        <h2 class="section-title">Our Beloved Parents</h2>
-        <div class="divider-line"><span>✦</span></div>
-
-        <div class="parents-grid">
-            <div class="parents-block">
-                <h3>Parents of the Bride</h3>
-                <p>Gil D. Cruz<br />and<br />Jocelyn S. Cruz</p>
-            </div>
-            <div class="parents-block">
-                <h3>Parents of the Groom</h3>
-                <p>Avelino A. Altea ✝ <br />and<br />Ester D. Altea</p>
-            </div>
-        </div>
-    </section>
-
     <!-- ═══════════ ENTOURAGE ═══════════ -->
-    <div class="bg-cream reveal">
-        <section id="entourage" style="padding:80px 24px; max-width:960px; margin:0 auto; text-align:center;">
+    <div id="entourage-section" class="reveal">
+        <section id="entourage" style="max-width:960px; margin:0 auto; text-align:center;">
             <p class="section-label">Our Beloved</p>
             <h2 class="section-title">Wedding Entourage</h2>
             <!-- Decorative box wrapping Principal Sponsors + full entourage -->
@@ -3469,6 +3600,24 @@
                     <circle cx="2" cy="2" r="2.5" fill="rgba(212,175,55,0.6)"/>
                     <path d="M8 2 C8 2 6 6 2 8" stroke="rgba(212,175,55,0.5)" stroke-width="0.8" fill="none"/>
                 </svg>
+
+            <!-- Parents of the Bride & Groom -->
+            <div class="parents-honour-wrap">
+                <p class="parents-honour-label">In Honour Of</p>
+                <h2 class="parents-honour-title">Parents of the Bride <em>&amp;</em> Groom</h2>
+                <div class="parents-honour-grid">
+                    <div class="parents-honour-card">
+                        <div class="parents-honour-card-mono">G</div>
+                        <h3>Parents of the Bride</h3>
+                        <p>Gil D. Cruz<br />and<br />Jocelyn S. Cruz</p>
+                    </div>
+                    <div class="parents-honour-card">
+                        <div class="parents-honour-card-mono">E</div>
+                        <h3>Parents of the Groom</h3>
+                        <p>Avelino A. Altea †<br />and<br />Ester D. Altea</p>
+                    </div>
+                </div>
+            </div>
 
             <div class="divider-line"><span>✦</span></div>
 
@@ -3614,8 +3763,8 @@
 
             <div class="divider-line"><span>✦</span></div>
 
-            <!-- Children's entourage -->
-            <div class="entourage-grid" style="grid-template-columns: repeat(auto-fit, minmax(180px,1fr));">
+            <!-- Children's entourage: bearers row -->
+            <div class="entourage-grid" style="grid-template-columns: repeat(3, 1fr); max-width:600px; margin-left:auto; margin-right:auto;">
                 <div class="entourage-group">
                     <h3>Ring Bearers</h3>
                     <ul>
@@ -3635,6 +3784,12 @@
                         <li>Xavier Adam Cruz</li>
                     </ul>
                 </div>
+            </div>
+
+            <div class="divider-line" style="margin-top:40px;"><span>✦</span></div>
+
+            <!-- Flower Girls — centered -->
+            <div class="flower-girls-row">
                 <div class="entourage-group">
                     <h3>Flower Girls</h3>
                     <ul>
