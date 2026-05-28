@@ -1960,6 +1960,48 @@
             }
         }
 
+        /* ── DECORATIVE ENTOURAGE BOX ── */
+        .entourage-deco-box {
+            position: relative;
+            max-width: 860px;
+            margin: 48px auto 0;
+            padding: 52px 40px 48px;
+            border: 1px solid rgba(212, 175, 55, 0.45);
+            background: rgba(255, 253, 248, 0.6);
+        }
+
+        /* Double-rule inner border */
+        .entourage-deco-box::before {
+            content: '';
+            position: absolute;
+            inset: 6px;
+            border: 1px solid rgba(212, 175, 55, 0.22);
+            pointer-events: none;
+        }
+
+        /* Corner ornaments */
+        .entourage-deco-box .deco-corner {
+            position: absolute;
+            width: 28px;
+            height: 28px;
+            color: rgba(212, 175, 55, 0.75);
+            font-size: 20px;
+            line-height: 1;
+            pointer-events: none;
+        }
+
+        .entourage-deco-box .deco-corner-tl { top: -2px;  left: -2px;  }
+        .entourage-deco-box .deco-corner-tr { top: -2px;  right: -2px; transform: scaleX(-1); }
+        .entourage-deco-box .deco-corner-bl { bottom: -2px; left: -2px;  transform: scaleY(-1); }
+        .entourage-deco-box .deco-corner-br { bottom: -2px; right: -2px; transform: scale(-1, -1); }
+
+        @media(max-width:600px) {
+            .entourage-deco-box {
+                padding: 36px 18px 32px;
+                margin: 32px auto 0;
+            }
+        }
+
         /* ── CEREMONY SPONSORS ── */
         .sponsors-grid {
             display: grid;
@@ -3396,6 +3438,38 @@
         <section id="entourage" style="padding:80px 24px; max-width:960px; margin:0 auto; text-align:center;">
             <p class="section-label">Our Beloved</p>
             <h2 class="section-title">Wedding Entourage</h2>
+            <!-- Decorative box wrapping Principal Sponsors + full entourage -->
+            <div class="entourage-deco-box">
+                <!-- Corner ornaments (SVG fleur-de-lis style) -->
+                <svg class="deco-corner deco-corner-tl" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2 2 L2 14 Q2 2 14 2 Z" fill="rgba(212,175,55,0.35)"/>
+                    <path d="M2 2 L14 2" stroke="rgba(212,175,55,0.75)" stroke-width="1.2"/>
+                    <path d="M2 2 L2 14" stroke="rgba(212,175,55,0.75)" stroke-width="1.2"/>
+                    <circle cx="2" cy="2" r="2.5" fill="rgba(212,175,55,0.6)"/>
+                    <path d="M8 2 C8 2 6 6 2 8" stroke="rgba(212,175,55,0.5)" stroke-width="0.8" fill="none"/>
+                </svg>
+                <svg class="deco-corner deco-corner-tr" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2 2 L2 14 Q2 2 14 2 Z" fill="rgba(212,175,55,0.35)"/>
+                    <path d="M2 2 L14 2" stroke="rgba(212,175,55,0.75)" stroke-width="1.2"/>
+                    <path d="M2 2 L2 14" stroke="rgba(212,175,55,0.75)" stroke-width="1.2"/>
+                    <circle cx="2" cy="2" r="2.5" fill="rgba(212,175,55,0.6)"/>
+                    <path d="M8 2 C8 2 6 6 2 8" stroke="rgba(212,175,55,0.5)" stroke-width="0.8" fill="none"/>
+                </svg>
+                <svg class="deco-corner deco-corner-bl" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2 2 L2 14 Q2 2 14 2 Z" fill="rgba(212,175,55,0.35)"/>
+                    <path d="M2 2 L14 2" stroke="rgba(212,175,55,0.75)" stroke-width="1.2"/>
+                    <path d="M2 2 L2 14" stroke="rgba(212,175,55,0.75)" stroke-width="1.2"/>
+                    <circle cx="2" cy="2" r="2.5" fill="rgba(212,175,55,0.6)"/>
+                    <path d="M8 2 C8 2 6 6 2 8" stroke="rgba(212,175,55,0.5)" stroke-width="0.8" fill="none"/>
+                </svg>
+                <svg class="deco-corner deco-corner-br" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2 2 L2 14 Q2 2 14 2 Z" fill="rgba(212,175,55,0.35)"/>
+                    <path d="M2 2 L14 2" stroke="rgba(212,175,55,0.75)" stroke-width="1.2"/>
+                    <path d="M2 2 L2 14" stroke="rgba(212,175,55,0.75)" stroke-width="1.2"/>
+                    <circle cx="2" cy="2" r="2.5" fill="rgba(212,175,55,0.6)"/>
+                    <path d="M8 2 C8 2 6 6 2 8" stroke="rgba(212,175,55,0.5)" stroke-width="0.8" fill="none"/>
+                </svg>
+
             <div class="divider-line"><span>✦</span></div>
 
             <!-- Principal Sponsors -->
@@ -3570,6 +3644,8 @@
                     </ul>
                 </div>
             </div>
+
+            </div><!-- /entourage-deco-box -->
         </section>
     </div>
 
