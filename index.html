@@ -3176,6 +3176,129 @@
             color: var(--gold);
             border-color: rgba(212, 175, 55, 0.5);
         }
+
+        /* ── PHOTO SHARING SECTION ── */
+        #photo-sharing-section {
+            background: linear-gradient(135deg, var(--burg) 0%, #6b0019 50%, var(--burg-deep) 100%);
+            max-width: 100%;
+            padding: 88px 24px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #photo-sharing-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: repeating-linear-gradient(45deg, transparent, transparent 32px,
+                    rgba(212, 175, 55, 0.03) 32px, rgba(212, 175, 55, 0.03) 33px);
+        }
+
+        #photo-sharing-section::after {
+            content: '';
+            position: absolute;
+            inset: 16px;
+            border: 1px solid rgba(212, 175, 55, 0.18);
+            pointer-events: none;
+        }
+
+        #photo-sharing-section .section-label {
+            color: rgba(212, 175, 55, 0.7);
+            position: relative;
+            z-index: 1;
+        }
+
+        #photo-sharing-section .section-title {
+            color: var(--ivory);
+            position: relative;
+            z-index: 1;
+        }
+
+        .photo-sharing-body {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 17px;
+            line-height: 1.7;
+            color: rgba(255, 245, 234, 0.8);
+            max-width: 480px;
+            margin: 20px auto 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .photo-sharing-qr-frame {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 24px;
+            padding: 14px;
+            background: rgba(255, 245, 234, 0.94);
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            border-radius: 4px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+            position: relative;
+            z-index: 1;
+        }
+
+        .photo-sharing-qr-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        .photo-sharing-qr-hint {
+            font-family: 'Cinzel', serif;
+            font-size: 8.5px;
+            letter-spacing: 0.3em;
+            color: rgba(212, 175, 55, 0.55);
+            text-transform: uppercase;
+            position: relative;
+            z-index: 1;
+            margin-bottom: 44px;
+        }
+
+        .photo-sharing-rule {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin: 0 auto 32px;
+            width: min(480px, 85%);
+            position: relative;
+            z-index: 1;
+        }
+
+        .photo-sharing-rule::before,
+        .photo-sharing-rule::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.4), transparent);
+        }
+
+        .photo-sharing-rule span {
+            color: rgba(212, 175, 55, 0.5);
+            font-size: 10px;
+            letter-spacing: 4px;
+        }
+
+        .photo-sharing-hashtag {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(26px, 4vw, 42px);
+            font-style: italic;
+            font-weight: 300;
+            color: var(--gold);
+            letter-spacing: 0.02em;
+            text-shadow: 0 2px 24px rgba(212, 175, 55, 0.25);
+            position: relative;
+            z-index: 1;
+        }
+
+        @media(max-width:600px) {
+            .photo-sharing-qr-frame {
+                width: 168px;
+                height: 168px;
+            }
+        }
     </style>
 </head>
 
@@ -3728,7 +3851,7 @@
                     <ul>
                         <li>Michael D. Altea</li>
                         <li>Jerick Alvin D. Altea</li>
-                        <li>Aian Clarence A. Salaysal</li>
+                        <li>Aian Clarence A. Salaysay</li>
                         <li>Andre Reginald C. Linang</li>
                         <li>Archie G. Herrera</li>
                         <li>John Matthew G. Dela Cruz</li>
@@ -3939,6 +4062,28 @@
             <a class="rsvp-btn" href="https://forms.gle/dMZaJa9bb2JaehhF7" target="_blank">
                 <span>Confirm Attendance</span>
             </a>
+        </div>
+    </section>
+
+    <!-- ═══════════ PHOTO SHARING ═══════════ -->
+    <section id="photo-sharing-section" class="reveal">
+        <div class="inner" style="position:relative; z-index:1; text-align:center;">
+            <p class="section-label">Capture the Moment</p>
+            <h2 class="section-title">Share Your Photos</h2>
+
+            <p class="photo-sharing-body">
+                Scan the QR code below to upload the photos and videos you take
+                on our special day. We'd love to see the celebration through your eyes!
+            </p>
+
+            <div class="photo-sharing-qr-frame">
+                <img src="qr.png" alt="Scan to share your photos" />
+            </div>
+            <p class="photo-sharing-qr-hint">Scan to upload your photos</p>
+
+            <div class="photo-sharing-rule"><span>✦ ✦ ✦</span></div>
+
+            <p class="photo-sharing-hashtag">#GIEnaYanForEARLver</p>
         </div>
     </section>
 
